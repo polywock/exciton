@@ -1,6 +1,6 @@
 schema_version = "1.0.0"
 id = "exciton"
-version = "1.0.19"
+version = "1.0.20"
 name = "Exciton Voice Control"
 tagline = "Control Blender with your voice"
 author = "Exciton.dev"
