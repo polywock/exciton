@@ -1,0 +1,67 @@
+{
+	"operators": [
+		"asset.bundle_install",
+		"console.autocomplete",
+		"console.execute",
+		"console.history_append",
+		"console.indent_or_autocomplete",
+		"console.insert",
+		"extensions.package_disable",
+		"extensions.package_install",
+		"extensions.package_install_files",
+		"extensions.package_install_marked",
+		"extensions.package_obsolete_marked",
+		"extensions.package_uninstall",
+		"extensions.package_uninstall_marked",
+		"extensions.package_uninstall_system",
+		"extensions.package_upgrade_all",
+		"extensions.repo_enable_from_drop",
+		"extensions.repo_sync",
+		"extensions.repo_sync_all",
+		"extensions.userpref_allow_online",
+		"extensions.userpref_allow_online_popup",
+		"image.external_edit",
+		"preferences.addon_disable",
+		"preferences.addon_enable",
+		"preferences.addon_install",
+		"preferences.addon_refresh",
+		"preferences.addon_remove",
+		"preferences.app_template_install",
+		"preferences.associate_blend",
+		"preferences.autoexec_path_add",
+		"preferences.copy_prev",
+		"preferences.extension_repo_add",
+		"preferences.extension_url_drop",
+		"preferences.keyconfig_activate",
+		"preferences.keyconfig_import",
+		"preferences.script_directory_add",
+		"preferences.studiolight_install",
+		"preferences.theme_install",
+		"preferences.unassociate_blend",
+		"script.execute_preset",
+		"script.python_file_run",
+		"script.reload",
+		"text.jump_to_file_at_point",
+		"text.run_script",
+		"wm.context_set_value",
+		"wm.path_open",
+		"wm.properties_edit",
+		"wm.properties_edit_value",
+		"wm.read_homefile",
+		"wm.url_open"
+	],
+	"properties": [
+		"use_scripts"
+	],
+	"operatorProperties": {
+		"wm.context_toggle": [
+			"module"
+		]
+	},
+	"pathProperties": [
+		"data_path",
+		"data_path_item",
+		"data_path_iter"
+	],
+	"plainPath": "[A-Za-z][A-Za-z0-9_]*(?:\\.[A-Za-z][A-Za-z0-9_]*|\\[\\d+\\]|\\[\"[^\"\\\\\\n]*\"\\]|\\['[^'\\\\\\n]*'\\])*"
+}
