@@ -137,6 +137,11 @@ class RibbonJob:
         self._queue.put(_QUEUE_DONE)
         recorder.Recorder.stop(self.id)
 
+        if self.action == "CHAT" and not self._watching_playback:
+            timings = self._audio_taken_timings()
+            if timings:
+                latency.report(self.id, "CHAT", timings)
+
         if new_state == "done":
             self._player.close_when_played()
         else:
@@ -444,7 +449,7 @@ class RibbonJob:
         if handed_off is None and (self.is_active() or self._player.is_open()):
             return 0.1
         released, first_audio = self._timing.get("released"), self._timing.get("first_audio")
-        timings: dict[str, int] = {}
+        timings = self._audio_taken_timings()
         if released is not None and first_audio is not None:
             timings["releaseToFirstAudioMs"] = _ms(released, first_audio)
         if released is not None and handed_off is not None:
@@ -452,6 +457,18 @@ class RibbonJob:
         if timings:
             latency.report(self.id, "CHAT", timings)
         return None
+
+
+
+
+    def _audio_taken_timings(self) -> dict[str, int]:
+        ready, released = self._timing.get("ready"), self._timing.get("released")
+        timings: dict[str, int] = {}
+        if ready is not None:
+            timings["pressToAudioTakenMs"] = _ms(self._started_at, ready)
+            if released is not None:
+                timings["audioTakenAfterReleaseMs"] = _ms(released, ready)
+        return timings
 
     def _on_summon_reply(self, id: str, response: td.SummonResponse):
         self._send_data({"type": "SUMMON_RESULT", "summon_id": id, "summon_response": response})
