@@ -146,6 +146,7 @@ def toggle_prime_mic():
 
 ActionType = tp.Literal[
     "OPEN_SETTINGS",
+    "OPEN_WEBSITE_PATH",
     "SNAPSHOT_RL",
     "SIGN_IN",
     "SIGN_OUT",
@@ -183,6 +184,8 @@ class EXCITON_OT_action(bpy.types.Operator):
         match self.type:
             case "OPEN_SETTINGS":
                 webbrowser.open(f"{utils.WEB_APP_URL}/app")
+            case "OPEN_WEBSITE_PATH":
+                webbrowser.open(f"{utils.WEB_APP_URL}{self.target_key}")
             case "SNAPSHOT_RL":
                 snapshot.api_snapshot_rl()
             case "SIGN_IN":

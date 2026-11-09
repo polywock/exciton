@@ -46,6 +46,8 @@ class Snapshot(tp.TypedDict):
 
     commandChecks: tp.NotRequired[dict[str, list[str]]]
 
+    canAddCommands: tp.NotRequired[bool]
+
 
 class UpdateRequired(tp.TypedDict):
     minVersion: tp.NotRequired[str]

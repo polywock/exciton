@@ -3,6 +3,7 @@ from .src import overseer
 from .src import bespoke
 from .src import panel
 from .src import utils
+from .src.commands import button_menu
 from .src.ribbon.summons import confirm
 from .src.ribbon.summons import pointer
 from .src.ribbon.summons import watch
@@ -14,6 +15,7 @@ def register():
     shortcut.register()
     panel.register()
     bespoke.register()
+    button_menu.register()
     confirm.register()
     watch.register()
     overseer.Overseer.register()
@@ -24,6 +26,7 @@ def unregister():
     pointer.unregister()
     watch.unregister()
     confirm.unregister()
+    button_menu.unregister()
     bespoke.unregister()
     panel.unregister()
     shortcut.unregister()
